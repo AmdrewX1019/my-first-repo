@@ -71,16 +71,16 @@ class Program()
             {
                 if (c == ',')
                 {
-                    Cnt++;//how many words inside
+                    Cnt++;//how many words/commas inside
                 }
             }
-            if (Cnt ==1)
+            if (Cnt == 1)
             {
                 for (int i = 0; i < line.Count(); i++)
                 {
                     if (line[i] == ',')
                     {
-                        if (line[i + 2] == line[0])
+                        if (line[i + 2] == line[0])//go to the beginning of next word
                         {
                             Console.WriteLine(line);
                             break;
@@ -94,15 +94,67 @@ class Program()
             }
         }
     }
-    static void Moststations()
+    static int Cntword(string s, string target)//count how many times target occur in s
     {
-        
+        if (s.Count() < target.Count())
+        {
+            return 0;
+        }
+        else
+        {
+            int Cnt = 0;
+            for (int i = 0; i <= s.Count() - target.Count();i++)
+            {
+                StringBuilder sb = new StringBuilder();
+                for (int j = i; j < i + target.Count(); j++)
+                {
+                    sb.Append(s[j]);
+                }
+                if (sb.ToString() == target)
+                {
+                    Cnt++;
+                }
+            }
+            return Cnt;
+        }
+    }
+    static void Moststation()
+    {
+        string[] lines = new string[]//ugly code(^/\^)
+        {
+        "Docklands Light Railway",
+        "Piccadilly",
+        "District",
+        "Metropolitan",
+        "Circle",
+        "Hammersmith & City",
+        "Northern",
+        "Bakerloo",
+        "Jubilee",
+        "Central",
+        "Victoria",
+        "Waterloo & City",
+        "Emirates Air Line"
+        };
+        int max = 0;
+        string Ans="";
+        string s = File.ReadAllText("stations.txt");
+        foreach (string l in lines)
+        {
+            if (Cntword(s, l) >= max)
+            {
+                max = Cntword(s, l);
+                Ans = l;
+            }
+        }
+        Console.WriteLine("line {0} has the maxium of {1} stations", Ans, max);
     }
     static void Main()
     {
-        //Edit("Mew.txt");
-        IncStation();//none of them contain station?
-        Station("Mackerel");
-        Sameletter();
+        Edit("Mew.txt");//Q1
+        IncStation();//Q2//none of them contain "station"
+        Station("Mackerel");//Q3
+        Sameletter();//Q4
+        Moststation();//Q5
     }
 }
