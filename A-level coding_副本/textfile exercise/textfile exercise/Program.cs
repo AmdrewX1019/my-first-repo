@@ -1,11 +1,12 @@
 ﻿using System.Text;
 using System.IO;
+using System.Diagnostics;
 class Program()
 {
-    static void Reading(string l)
+    static string Reading(string l)
     {
         string s = File.ReadAllText(l);
-        Console.WriteLine(s);
+        return s;
         /*using (StreamReader SR = new StreamReader("temp.txt"))
         {
             String line = SR.ReadToEnd();
@@ -138,7 +139,7 @@ class Program()
         };
         int max = 0;
         string Ans="";
-        string s = File.ReadAllText("stations.txt");
+        string s = Reading("stations.txt");
         foreach (string l in lines)
         {
             if (Cntword(s, l) >= max)
@@ -156,5 +157,6 @@ class Program()
         Station("Mackerel");//Q3
         Sameletter();//Q4
         Moststation();//Q5
+        Debug.Assert(Cntword(Reading("stations.txt"), "Jubilee") == 27);
     }
 }
