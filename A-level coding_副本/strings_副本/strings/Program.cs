@@ -60,6 +60,7 @@ class Program {
         {
             l2.Add((int)c);
         }
+        //str to list, then sort alphabytically
         l1.Sort();
         l2.Sort();
         if (l1.Count() == l2.Count())

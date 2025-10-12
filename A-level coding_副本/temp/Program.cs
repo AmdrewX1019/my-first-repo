@@ -2,16 +2,20 @@
 
 class Program
 {
+    static int Getrm(int x)
+    {
+        return x & 1;
+    }
+    static int Get3rm(int x)
+    {
+        return x & 7;
+    }
+    static int Getlm(int x)
+    {
+        
+    }
     static void Main()
     {
-        for (int i = 1; i <= 19; i++)
-        {
-            Console.Write((i * i * i) % 19 + " ");
-        }
-        Console.WriteLine();
-        for (int i = 1; i <= 19; i++)
-        {
-            Console.Write((i * i * i * i) % 19 + " ");
-        }
+        
     }
 }
