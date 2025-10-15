@@ -56,7 +56,6 @@ class Program
         Debug.Assert(Rem3rm(7) == 0);
         Debug.Assert(Remlm(-2147483648) == 0);
         Debug.Assert(Rem3lm(-2147483648) == 0);
-        Debug.Assert(Remrm(Get4rm(15)) == 14);
-        
+        Debug.Assert(Remrm(Get4rm(15))==14);
     }
 }
